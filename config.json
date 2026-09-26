@@ -1,0 +1,39 @@
+{
+    "nombre_proyecto": "Inscripcion Finales",
+    "prefijo_username": "est_",
+    "tablas": [
+        {
+            "nombre": "inscripcionFinales_usuario",
+            "esquema": "public",
+            "tipo": "principal",
+            "columnas": [
+                {"columna_sql": "username", "columna_excel": "DNI", "transformacion": "prefijo"},
+                {"columna_sql": "password", "valor_fijo": "!"},
+                {"columna_sql": "email", "columna_excel": "Correo electrónico", "tipo": "texto"},
+                {"columna_sql": "nombre_completo", "columna_excel": "Nombre estudiante", "tipo": "texto"},
+                {"columna_sql": "dni", "columna_excel": "DNI", "tipo": "texto"},
+                {"columna_sql": "fecha_nac", "columna_excel": "Fecha Nacimiento", "tipo": "fecha"},
+                {"columna_sql": "nacionalidad", "columna_excel": "Nacionalidad", "tipo": "texto"},
+                {"columna_sql": "telefono_1", "columna_excel": "Celular", "tipo": "texto"},
+                {"columna_sql": "is_active", "valor_fijo": true},
+                {"columna_sql": "is_staff", "valor_fijo": false},
+                {"columna_sql": "is_superuser", "valor_fijo": false}
+            ],
+            "on_conflict": "DO NOTHING"
+        },
+        {
+            "nombre": "inscripcionFinales_estudiante",
+            "esquema": "public",
+            "tipo": "secundaria",
+            "columnas": [
+                {"columna_sql": "usuario_ptr_id", "subconsulta": {
+                    "tabla": "inscripcionFinales_usuario",
+                    "columna_busqueda": "username",
+                    "columna_excel_match": "DNI",
+                    "transformacion": "prefijo"
+                }},
+                {"columna_sql": "matricula", "columna_excel": "Legajo completo", "tipo": "texto"}
+            ]
+        }
+    ]
+}

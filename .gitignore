@@ -1,0 +1,35 @@
+# Archivos compilados de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Carpetas de empaquetado con PyInstaller
+build/
+dist/
+*.spec
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+ENV/
+
+# Configuración de editores
+.idea/
+.vscode/
+*.swp
+
+# Archivos de registro
+*.log
+
+# Ejecutables generados
+*.exe
+
+# Configuraciones locales con datos sensibles
+config_local.json
+
+# Archivos del sistema operativo
+Thumbs.db
+desktop.ini
+.DS_Store
